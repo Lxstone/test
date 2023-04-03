@@ -1,0 +1,112 @@
+@echo off
+cls
+title PORCH WTF
+chcp 65001 > nul
+echo. [31m
+echo    ██████╗░░█████╗░██████╗░░█████╗░██╗░░██╗  ░██╗░░░░░░░██╗████████╗███████╗
+echo    ██╔══██╗██╔══██╗██╔══██╗██╔══██╗██║░░██║  ░██║░░██╗░░██║╚══██╔══╝██╔════╝
+echo    ██████╔╝██║░░██║██████╔╝██║░░╚═╝███████║  ░╚██╗████╗██╔╝░░░██║░░░█████╗░░
+echo    ██╔═══╝░██║░░██║██╔══██╗██║░░██╗██╔══██║  ░░████╔═████║░░░░██║░░░██╔══╝░░
+echo    ██║░░░░░╚█████╔╝██║░░██║╚█████╔╝██║░░██║  ░░╚██╔╝░╚██╔╝░░░░██║░░░██║░░░░░
+echo    ╚═╝░░░░░░╚════╝░╚═╝░░╚═╝░╚════╝░╚═╝░░╚═╝  ░░░╚═╝░░░╚═╝░░░░░╚═╝░░░╚═╝░░░░░
+echo. 
+timeout 3 
+color 0B
+
+cd C:/
+SetTimerResolutionService -install
+cls
+
+
+Next, disable High Precision Event Timer from Device Manager
+
+bcdedit /set x2apicpolicy Enable
+
+bcdedit /set configaccesspolicy Default
+
+bcdedit /set MSI Default
+
+bcdedit /set usephysicaldestination No
+
+bcdedit /set usefirmwarepcisettings No
+
+bcdedit /deletevalue useplatformclock
+
+bcdedit /set disabledynamictick yes
+
+bcdedit /set useplatformtick Yes
+
+bcdedit /set tscsyncpolicy Enhanced
+
+cls
+
+color 0a
+
+Echo ..
+timeout 3
+
+ cd\
+netsh int tcp show global
+netsh int tcp set global chimney=enabled
+netsh int tcp set heuristics disabled
+netsh int tcp set global autotuninglevel=normal
+netsh int tcp set global congestionprovider=ctcp
+ipconfig /flushdns
+ipconfig /flushdns
+import subprocess
+import requests
+import time
+import sys
+import os
+
+hwid = str(str(subprocess.check_output('wmic csproduct get uuid')).strip().replace(r"\r", "").split(r"\n")[1].strip())
+r = requests.get("https://pastebin.com/UmUAR2zu")
+
+def printSlow(text):
+    for char in text:
+        print(char, end="")
+        sys.stdout.flush()
+        time.sleep(.1)
+
+def Main_Program():
+    if hwid in r.text:
+        printSlow("Add Perfect Full...")
+        time.sleep(.1)
+        os.system('cls')
+    else:
+        print("Error! HWID Not I Database!")
+        print("HWID: " + hwid)
+        os.system('pause >NUL')
+
+Main_Program()
+cls
+pause
+
+color 0F
+cd /d "%~dp0" && ( if exist "%temp%\getadmin.vbs" del "%temp%\getadmin.vbs" ) && fsutil dirty query %systemdrive% 1>nul 2>nul || (  echo Set UAC = CreateObject^("Shell.Application"^) : UAC.ShellExecute "cmd.exe", "/k cd ""%~sdp0"" && %~s0 %params%", "", "runas", 1 >> "%temp%\getadmin.vbs" && "%temp%\getadmin.vbs" && exit /B )
+bcdedit /set useplatformtick yes
+bcdedit /timeout 0
+bcdedit /set nx optout
+bcdedit /set bootux disabled
+bcdedit /set bootmenupolicy standard
+bcdedit /set hypervisorlaunchtype off
+bcdedit /set tpmbootentropy ForceDisable
+bcdedit /set quietboot yes
+bcdedit /set {globalsettings} custom:16000067 true
+bcdedit /set {globalsettings} custom:16000069 true
+bcdedit /set {globalsettings} custom:16000068 true
+bcdedit /set linearaddress57 OptOut
+bcdedit /set increaseuserva 268435328
+bcdedit /set firstmegabytepolicy UseAll
+bcdedit /set avoidlowmemory 0x8000000
+bcdedit /set nolowmem Yes
+bcdedit /set allowedinmemorysettings 0x0
+bcdedit /set isolatedcontext No
+bcdedit /set vsmlaunchtype Off
+bcdedit /set vm No
+bcdedit /set configaccesspolicy Default
+bcdedit /set MSI Default
+bcdedit /set usephysicaldestination No
+bcdedit /set usefirmwarepcisettings No
+ECHO.            
+pause
